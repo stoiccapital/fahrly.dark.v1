@@ -42,7 +42,16 @@
           navToggle.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
+        // Close menu when clicking on a link or logo
+        const logo = document.querySelector('.logo');
+        if (logo) {
+          logo.addEventListener('click', function() {
+            nav.classList.remove('nav-open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        }
+        
         navLinks.querySelectorAll('.nav-link, .btn').forEach(link => {
           link.addEventListener('click', function() {
             nav.classList.remove('nav-open');
@@ -107,7 +116,7 @@
     <nav class="nav">
       <div class="container">
         <div class="nav-content">
-          <div class="logo">BrandName</div>
+          <a href="#hero" class="logo">BrandName</a>
           <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -125,7 +134,7 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero section">
+  <section id="hero" class="hero section">
     <div class="container">
       <div class="grid-2">
         <div class="hero-content">
