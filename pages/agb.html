@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allgemeine Geschäftsbedingungen - Fahrly</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/overrides.css">
+</head>
+<body>
+  <script>
+    // Load navbar component
+    fetch('../components/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-container').innerHTML = data;
+        // Adjust navbar links for pages directory
+        const logo = document.querySelector('.logo');
+        const navLinks = document.querySelectorAll('.nav-link');
+        if (logo) logo.setAttribute('href', '../index.html');
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href.includes('index.html#')) {
+            link.setAttribute('href', '../' + href);
+          }
+        });
+        // Initialize navbar functionality after loading
+        initNavbar();
+      })
+      .catch(error => console.error('Error loading navbar:', error));
+
+    function initNavbar() {
+      // Sticky nav scroll effect
+      window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.nav');
+        if (nav && window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else if (nav) {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      // Mobile navigation toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const nav = document.querySelector('.nav');
+      
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function() {
+          const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', !isExpanded);
+          nav.classList.toggle('nav-open');
+          navToggle.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link or logo
+        const logo = document.querySelector('.logo');
+        if (logo) {
+          logo.addEventListener('click', function() {
+            nav.classList.remove('nav-open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        }
+        
+        navLinks.querySelectorAll('.nav-link, .btn').forEach(link => {
+          link.addEventListener('click', function() {
+            nav.classList.remove('nav-open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!nav.contains(event.target) && nav.classList.contains('nav-open')) {
+            nav.classList.remove('nav-open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    }
+  </script>
+  <!-- Navigation will be loaded here -->
+  <div id="navbar-container"></div>
+
+  <!-- AGB Section -->
+  <section class="section" style="padding-top: calc(var(--space-3xl) + 80px);">
+    <div class="container">
+      <div style="max-width: 48rem; margin: 0 auto;">
+        <h1 style="margin-bottom: var(--space-md);">Allgemeine Geschäftsbedingungen</h1>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-2xl);">Stand: Januar 2024</p>
+
+        <div class="stack-lg" style="margin-top: var(--space-2xl);">
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 1 Geltungsbereich</h2>
+            <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der Fahrly OÜ (nachfolgend "Fahrly") und ihren Kunden über die Nutzung der Fahrly-Software und damit verbundenen Dienstleistungen.</p>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 2 Vertragsschluss</h2>
+            <p>Der Vertrag kommt zustande durch:</p>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">Ihre Registrierung auf unserer Plattform (Angebot)</li>
+              <li style="margin-bottom: var(--space-sm);">Unsere Bestätigung per E-Mail oder in der App (Annahme)</li>
+              <li style="margin-bottom: var(--space-sm);">Die Aktivierung Ihres Kontos</li>
+            </ul>
+            <p style="margin-top: var(--space-md);">Mit der Registrierung bestätigen Sie, dass Sie geschäftsfähig sind und im Namen Ihres Unternehmens handeln dürfen.</p>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 3 Leistungsumfang</h2>
+            <p>Fahrly bietet folgende Services:</p>
+            <div style="margin-top: var(--space-md);">
+              <h3 style="margin-bottom: var(--space-sm); margin-top: var(--space-lg);">Fahrly GO: Intelligente Nachrichtenvermittlung für Fahrer</h3>
+              <ul style="margin-left: var(--space-lg); color: var(--text-muted);">
+                <li style="margin-bottom: var(--space-sm);">Push-Nachrichten mit Preis und Route</li>
+                <li style="margin-bottom: var(--space-sm);">Digitale Stundenzettel</li>
+                <li style="margin-bottom: var(--space-sm);">Ausgabenerfassung</li>
+                <li style="margin-bottom: var(--space-sm);">Community-Bewertungen</li>
+              </ul>
+            </div>
+            <div style="margin-top: var(--space-md);">
+              <h3 style="margin-bottom: var(--space-sm); margin-top: var(--space-lg);">Fahrly Fleet: Komplettes HR-Management System</h3>
+              <ul style="margin-left: var(--space-lg); color: var(--text-muted);">
+                <li style="margin-bottom: var(--space-sm);">Digitales Onboarding</li>
+                <li style="margin-bottom: var(--space-sm);">E-Signatur für Verträge</li>
+                <li style="margin-bottom: var(--space-sm);">KI-gestützte Bußgeldbearbeitung</li>
+                <li style="margin-bottom: var(--space-sm);">Automatische Behördenkommunikation</li>
+                <li style="margin-bottom: var(--space-sm);">Intelligente Wartungserinnerungen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 4 Preise und Zahlungsbedingungen</h2>
+            <div style="margin-top: var(--space-md);">
+              <p><strong>Self Driver (Einzelfahrer)</strong></p>
+              <p style="margin-left: var(--space-lg); color: var(--text-muted);">30€/Monat</p>
+            </div>
+            <div style="margin-top: var(--space-md);">
+              <p><strong>Fleets (Unternehmen)</strong></p>
+              <p style="margin-left: var(--space-lg); color: var(--text-muted);">50€/Monat</p>
+            </div>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">Alle Preise verstehen sich zzgl. der gesetzlichen Mehrwertsteuer</li>
+              <li style="margin-bottom: var(--space-sm);">Abrechnung erfolgt monatlich im Voraus</li>
+              <li style="margin-bottom: var(--space-sm);">Zahlung per SEPA-Lastschrift, Kreditkarte oder Überweisung</li>
+              <li style="margin-bottom: var(--space-sm);">Bei Zahlungsverzug behalten wir uns vor, den Zugang zu sperren</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 5 Kostenlose Testphase</h2>
+            <p>Neue Kunden erhalten:</p>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">2 Tage kostenlose Testphase mit vollem Funktionsumfang</li>
+              <li style="margin-bottom: var(--space-sm);">Keine Kreditkarte erforderlich</li>
+              <li style="margin-bottom: var(--space-sm);">Automatisches Ende nach 2 Tagen ohne Verpflichtung</li>
+              <li style="margin-bottom: var(--space-sm);">Nahtloser Übergang in kostenpflichtiges Abo möglich</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 6 Vertragslaufzeit und Kündigung</h2>
+            <p><strong>Flexibel und fair:</strong></p>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">Keine Mindestvertragslaufzeit</li>
+              <li style="margin-bottom: var(--space-sm);">Monatlich kündbar mit 30 Tagen Frist zum Monatsende</li>
+              <li style="margin-bottom: var(--space-sm);">Kündigung per E-Mail an <a href="mailto:support@fahrly.de">support@fahrly.de</a></li>
+              <li style="margin-bottom: var(--space-sm);">Datenexport vor Vertragsende möglich</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 7 Datenschutz und Datensicherheit</h2>
+            <p>Wir verpflichten uns zu:</p>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">100% DSGVO-konformer Datenverarbeitung</li>
+              <li style="margin-bottom: var(--space-sm);">Speicherung ausschließlich auf EU-Servern</li>
+              <li style="margin-bottom: var(--space-sm);">SSL-Verschlüsselung aller Datenübertragungen</li>
+              <li style="margin-bottom: var(--space-sm);">Regelmäßigen Sicherheitsupdates</li>
+            </ul>
+            <p style="margin-top: var(--space-md);">Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 8 Verfügbarkeit und Support</h2>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);"><strong>Verfügbarkeitsgarantie:</strong> 99,9% im Jahresmittel</li>
+              <li style="margin-bottom: var(--space-sm);"><strong>WhatsApp Support:</strong> Mo-Fr 9-18 Uhr</li>
+              <li style="margin-bottom: var(--space-sm);"><strong>Priority Support:</strong> für Fleets-Kunden</li>
+              <li style="margin-bottom: var(--space-sm);"><strong>Wartungsfenster:</strong> nur nachts mit Vorankündigung</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 9 Haftung</h2>
+            <p>Fahrly haftet unbeschränkt bei:</p>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);">Vorsatz und grober Fahrlässigkeit</li>
+              <li style="margin-bottom: var(--space-sm);">Verletzung von Leben, Körper oder Gesundheit</li>
+              <li style="margin-bottom: var(--space-sm);">Verletzung wesentlicher Vertragspflichten</li>
+            </ul>
+            <p style="margin-top: var(--space-md);">Im Übrigen ist die Haftung auf den vertragstypischen, vorhersehbaren Schaden begrenzt.</p>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 10 Änderungen der AGB</h2>
+            <p>Wir behalten uns vor, diese AGB anzupassen. Änderungen werden Ihnen mindestens 4 Wochen vor Inkrafttreten mitgeteilt. Widersprechen Sie nicht innerhalb dieser Frist, gelten die neuen AGB als angenommen.</p>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">§ 11 Schlussbestimmungen</h2>
+            <ul style="margin-top: var(--space-md); margin-left: var(--space-lg); color: var(--text-muted);">
+              <li style="margin-bottom: var(--space-sm);"><strong>Anwendbares Recht:</strong> Recht der Bundesrepublik Deutschland</li>
+              <li style="margin-bottom: var(--space-sm);"><strong>Gerichtsstand:</strong> Tallinn, Estonia (für Unternehmer)</li>
+              <li style="margin-bottom: var(--space-sm);"><strong>Salvatorische Klausel:</strong> Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag im Übrigen wirksam</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style="margin-bottom: var(--space-md);">Kontakt</h2>
+            <p>Bei Fragen zu unseren AGB erreichen Sie uns:</p>
+            <p style="margin-top: var(--space-md);">Fahrly OÜ</p>
+            <p>WhatsApp: <a href="https://wa.me/491718411868">+49 171 841 1868</a></p>
+            <p>E-Mail: <a href="mailto:support@fahrly.de">support@fahrly.de</a></p>
+            <p>Web: <a href="https://www.fahrly.de">www.fahrly.de</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer will be loaded here -->
+  <div id="footer-container"></div>
+
+  <script>
+    // Load footer component
+    fetch('../components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-container').innerHTML = data;
+        // Adjust footer links for pages directory
+        const footerLinks = document.querySelectorAll('.footer-link');
+        footerLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('pages/')) {
+            link.setAttribute('href', href.replace('pages/', ''));
+          }
+        });
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+</body>
+</html>
+

@@ -182,6 +182,17 @@
   transform: translateY(-1px);
 }
 
+.btn-login {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+}
+
+.btn-login:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
 /* Hero Section */
 .hero {
   padding: calc(var(--space-3xl) + 80px) 0 var(--space-3xl) 0;
@@ -231,11 +242,190 @@
   gap: var(--space-md);
   margin-top: var(--space-xl);
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero .hero-actions {
+  justify-content: flex-start;
 }
 
 .hero-visual {
   position: relative;
   z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl), var(--shadow-accent);
+  transition: all var(--transition-base);
+}
+
+.hero-image:hover {
+  box-shadow: var(--shadow-xl), var(--shadow-accent-lg);
+  transform: translateY(-4px);
+}
+
+/* Trusted By Brands Carousel */
+.trusted-by {
+  padding: var(--space-2xl) 0;
+  background: transparent;
+}
+
+.trusted-by-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.trusted-by-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.trusted-by-carousel {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--space-lg),
+    black calc(100% - var(--space-lg)),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--space-lg),
+    black calc(100% - var(--space-lg)),
+    transparent 100%
+  );
+}
+
+.trusted-by-track {
+  display: flex;
+  gap: var(--space-md);
+  width: fit-content;
+  animation: trusted-by-scroll 30s linear infinite;
+}
+
+.trusted-by-carousel:hover .trusted-by-track {
+  animation-play-state: paused;
+}
+
+.trusted-by-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.trusted-by-badge:hover {
+  border-color: var(--border-subtle-hover);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.trusted-by-arrow {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.trusted-by-arrow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-subtle-hover);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.trusted-by-arrow:active {
+  transform: scale(0.95);
+}
+
+.trusted-by-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes trusted-by-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - var(--space-md)));
+  }
+}
+
+/* Desktop: Show arrows */
+@media (min-width: 768px) {
+  .trusted-by-arrow {
+    display: flex;
+  }
+  
+  .trusted-by-carousel {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 60px,
+      black calc(100% - 60px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 60px,
+      black calc(100% - 60px),
+      transparent 100%
+    );
+  }
+}
+
+/* Mobile: Hide arrows, adjust spacing */
+@media (max-width: 767px) {
+  .trusted-by-wrapper {
+    gap: 0;
+  }
+  
+  .trusted-by-carousel {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  
+  .trusted-by-badge {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.8125rem;
+  }
 }
 
 /* Enhanced Browser Mockup - App Layout */
