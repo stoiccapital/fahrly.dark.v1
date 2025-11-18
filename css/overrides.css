@@ -1,0 +1,246 @@
+/* Premium Design Overrides - Final Polish */
+
+/* Enhanced Shadows & Depth */
+.browser-mockup {
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(79, 70, 229, 0.1),
+    0 8px 32px rgba(79, 70, 229, 0.2);
+}
+
+.browser-mockup:hover {
+  box-shadow: 
+    0 24px 72px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(79, 70, 229, 0.2),
+    0 12px 48px rgba(79, 70, 229, 0.3);
+  transform: translateY(-5px);
+}
+
+.feature-card {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.feature-card:hover {
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(79, 70, 229, 0.2),
+    0 4px 16px rgba(79, 70, 229, 0.15);
+  transform: translateY(-5px);
+}
+
+.pricing-card {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.pricing-card:hover {
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(79, 70, 229, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Enhanced Hero Mockup - More Product-Like */
+.app-sidebar {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.sidebar-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+
+.sidebar-item.active {
+  background: linear-gradient(90deg, var(--accent-soft) 0%, rgba(79, 70, 229, 0.05) 100%);
+  border-color: rgba(79, 70, 229, 0.2);
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.15);
+}
+
+.sidebar-item.active::before {
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.app-header-line {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+}
+
+.app-header-right {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(79, 70, 229, 0.2) 100%);
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.2);
+}
+
+.app-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app-card-header {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+}
+
+/* Enhanced Feature Icons - Styled CSS Icons */
+.feature-icon {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, rgba(79, 70, 229, 0.1) 100%);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  box-shadow: 
+    0 4px 12px rgba(79, 70, 229, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.feature-icon::before {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  transform: rotate(45deg);
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  border-color: var(--accent);
+  box-shadow: 
+    0 8px 24px rgba(79, 70, 229, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.feature-card:hover .feature-icon::before {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Pricing Cards */
+.pricing-card.starter {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.pricing-card.featured {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.12) 0%, rgba(79, 70, 229, 0.08) 100%);
+  border: 2px solid var(--accent);
+  transform: translateY(-4px) scale(1.05);
+  position: relative;
+}
+
+/* Gradient border effect handled in components.css */
+
+.pricing-card.featured:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 
+    0 20px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px var(--accent),
+    0 16px 40px rgba(79, 70, 229, 0.4);
+}
+
+.pricing-card.business {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+/* Enhanced Pricing Badge - Green dot indicator already in components.css */
+.pricing-badge {
+  box-shadow: 
+    0 4px 12px rgba(79, 70, 229, 0.4),
+    0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* Enhanced Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  box-shadow: 
+    0 4px 16px rgba(79, 70, 229, 0.4),
+    0 0 0 1px rgba(79, 70, 229, 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-hover) 0%, #818cf8 100%);
+  box-shadow: 
+    0 8px 24px rgba(79, 70, 229, 0.5),
+    0 0 0 1px rgba(79, 70, 229, 0.3);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(1);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.btn-outline:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+/* Typography enhancements handled in base.css and components.css */
+
+/* FAQ enhancements handled in components.css */
+
+/* Enhanced Pricing Section Background */
+#pricing.section {
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 60%),
+    var(--bg-main);
+  position: relative;
+}
+
+#pricing.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.3;
+}
+
+/* Refined Scroll Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced Section Alternating Backgrounds */
+.section-alt {
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(79, 70, 229, 0.04) 0%, transparent 50%),
+    var(--bg-surface-alt);
+  position: relative;
+}
+
+/* Mobile Refinements */
+@media (max-width: 768px) {
+  .pricing-card.featured {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  .pricing-card.featured:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .browser-mockup:hover {
+    transform: translateY(-2px);
+  }
+  
+  .feature-card:hover,
+  .pricing-card:hover {
+    transform: translateY(-3px);
+  }
+}
+

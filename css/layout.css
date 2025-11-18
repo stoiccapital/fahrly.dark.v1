@@ -8,6 +8,12 @@
 /* Section Spacing */
 .section {
   padding: var(--space-2xl) 0;
+  position: relative;
+}
+
+.section-alt {
+  background: var(--bg-surface-alt);
+  padding: var(--space-3xl) 0;
 }
 
 /* Vertical Stacks */
@@ -46,6 +52,14 @@
   .grid-2 {
     gap: var(--space-lg);
   }
+  
+  .section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .section-alt {
+    padding: var(--space-2xl) 0;
+  }
 }
 
 /* Flex Utilities */
@@ -74,4 +88,3 @@
 .text-max-width {
   max-width: 34rem;
 }
-

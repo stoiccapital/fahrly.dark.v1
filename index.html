@@ -14,8 +14,60 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/overrides.css">
 </head>
 <body>
+  <script>
+    // Sticky nav scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // FAQ Accordion
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', function() {
+          const isActive = item.classList.contains('active');
+          // Close all items
+          faqItems.forEach(i => i.classList.remove('active'));
+          // Open clicked item if it wasn't active
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Scroll animations with IntersectionObserver
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections and cards
+      const elementsToAnimate = document.querySelectorAll('.section, .feature-card, .pricing-card');
+      elementsToAnimate.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    });
+  </script>
   <!-- Navigation -->
   <header>
     <nav class="nav">
@@ -57,12 +109,34 @@
               <div class="browser-url"></div>
             </div>
             <div class="browser-content">
-              <div class="browser-block-large"></div>
-              <div class="browser-block"></div>
-              <div class="browser-lines">
-                <div class="browser-line"></div>
-                <div class="browser-line"></div>
-                <div class="browser-line"></div>
+              <div class="app-sidebar">
+                <div class="sidebar-item active"></div>
+                <div class="sidebar-item"></div>
+                <div class="sidebar-item"></div>
+                <div class="sidebar-item"></div>
+              </div>
+              <div class="app-main">
+                <div class="app-header">
+                  <div class="app-header-left">
+                    <div class="app-header-line"></div>
+                    <div class="app-header-line"></div>
+                  </div>
+                  <div class="app-header-right"></div>
+                </div>
+                <div class="app-cards">
+                  <div class="app-card">
+                    <div class="app-card-header"></div>
+                    <div class="app-card-line"></div>
+                    <div class="app-card-line"></div>
+                    <div class="app-card-line"></div>
+                  </div>
+                  <div class="app-card">
+                    <div class="app-card-header"></div>
+                    <div class="app-card-line"></div>
+                    <div class="app-card-line"></div>
+                    <div class="app-card-line"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -72,9 +146,10 @@
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="section">
+  <section id="features" class="section section-alt">
     <div class="container">
       <div class="features-intro">
+        <div class="eyebrow">Features</div>
         <h2>Everything you need to succeed</h2>
         <p>Powerful features that help you work smarter, not harder. Built for teams who demand excellence.</p>
       </div>
@@ -117,11 +192,12 @@
   <section id="pricing" class="section">
     <div class="container">
       <div class="pricing-intro">
+        <div class="eyebrow">Pricing</div>
         <h2>Simple, transparent pricing</h2>
         <p>Choose the plan that works best for your team. All plans include a 14-day free trial.</p>
       </div>
       <div class="grid-3">
-        <div class="pricing-card">
+        <div class="pricing-card starter">
           <h3 class="pricing-title">Starter</h3>
           <div class="pricing-price">$29<span class="pricing-period">/mo</span></div>
           <p class="pricing-description">Perfect for individuals and small teams getting started.</p>
@@ -149,7 +225,7 @@
           </ul>
           <a href="#" class="btn btn-primary pricing-cta">Start Free Trial</a>
         </div>
-        <div class="pricing-card">
+        <div class="pricing-card business">
           <h3 class="pricing-title">Business</h3>
           <div class="pricing-price">$199<span class="pricing-period">/mo</span></div>
           <p class="pricing-description">For large organizations with custom requirements.</p>
@@ -169,9 +245,10 @@
   </section>
 
   <!-- FAQ Section -->
-  <section id="faq" class="section">
+  <section id="faq" class="section section-alt">
     <div class="container">
       <div class="faq-intro">
+        <div class="eyebrow">FAQ</div>
         <h2>Frequently asked questions</h2>
         <p>Everything you need to know about our platform and pricing.</p>
       </div>
