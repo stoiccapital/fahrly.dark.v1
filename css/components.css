@@ -1161,6 +1161,52 @@
   color: var(--text-muted);
 }
 
+.testimonial-google-rating {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-xl) 0 var(--space-2xl) 0;
+}
+
+.testimonial-google-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-family: 'Inter', sans-serif;
+}
+
+.testimonial-google-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-subtle-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.testimonial-google-logo {
+  height: 24px;
+  width: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.testimonial-google-stars {
+  font-size: 1rem;
+  color: #fbbc04;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.testimonial-google-rating-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
 .testimonial-carousel-wrapper {
   position: relative;
   display: flex;
